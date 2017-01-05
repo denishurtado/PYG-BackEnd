@@ -61,14 +61,10 @@ app.get('/api/message/:id', function(req, res){
 
 //----Update
 app.put('/api/message/:id', function(req, res){
-	//var getMessagesbyId = database.collection('messages').find({"_id": new ObjectId(req.params.id)}).toArray(function(err, results){
-		//database.collection('messages').update({"_id": new ObjectId(req.params.id)}, {$set:{msg:req.body}});
-	var updateMessages = database.collection('messages').update({"_id": new ObjectId(req.params.id)},{$set:{msg:req.body}});
-		//console.log(results);
-		res.send({ message: 'Messages Successfully updated' });
-		res.status(200);		
-		//res.send({ message: '1 Message Successfully update' });
-	//});
+	var updateMessages = database.collection('messages').update({"_id": new ObjectId(req.params.id)},{$set:{msg:req.body.msg}});
+	res.send({ message: 'Messages Successfully updated' });
+	res.status(200);		
+	
 });
 
 
